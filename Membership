@@ -21,8 +21,8 @@ namespace HelloWorld
             m1.CreateMembership(MemberType.Annual);
             
             //To create Lifetime Member
-            MembershipManager m2 = new MembershipManager();
-            m2.CreateMembership(MemberType.Lifetime);
+            /*MembershipManager m2 = new MembershipManager();
+            m2.CreateMembership(MemberType.Lifetime);*/
             
         }
     }
@@ -31,12 +31,12 @@ namespace HelloWorld
     {
         public void Register()
         {
-            Console.WriteLine("Member Register");
+            Console.WriteLine("Register\n");
         }
     
         public void Notify()
         {
-            Console.WriteLine("Member Notify");
+            Console.WriteLine("Notify\n");
         }
     }
 
@@ -52,7 +52,7 @@ namespace HelloWorld
     {
         public LifetimeMember()
         {
-            Console.WriteLine ("Lifetime Member");
+            Console.WriteLine ("Lifetime Member\n");
         }
     }
 
@@ -60,7 +60,7 @@ namespace HelloWorld
     {
         public TemporaryMember()
         {
-            Console.WriteLine ("Temp Member");
+            Console.WriteLine ("Temp Member\n");
         }
     }
     
@@ -79,6 +79,8 @@ namespace HelloWorld
       {
           MemberFactory factory = new MemberFactory();
           m = factory.CreateMember(type);
+          m.Register();
+          m.Notify();
           return m;
       }
     }
