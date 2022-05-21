@@ -14,12 +14,15 @@ namespace HelloWorld
             member.Register();
             member.Notify();*/
             
-            Member annualMember;
-            MembershipManager m1 = new MembershipManager();
-            annualMember = m1.CreateMembership(MemberType.Annual);
+            Member member;
             
+            //To create Annual Member
+            MembershipManager m1 = new MembershipManager();
+            m1.CreateMembership(MemberType.Annual);
+            
+            //To create Lifetime Member
             MembershipManager m2 = new MembershipManager();
-            annualMember = m2.CreateMembership(MemberType.Lifetime);
+            m2.CreateMembership(MemberType.Lifetime);
             
         }
     }
@@ -41,7 +44,7 @@ namespace HelloWorld
     {
         public AnnualMember()
         {
-            Console.WriteLine ("Annual Member");
+            Console.WriteLine ("Annual Member\n");
         }
     }
 
