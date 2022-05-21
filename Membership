@@ -26,26 +26,45 @@ public class TemporaryMember : Member
   
 }
 
+Enum MemberType
+{
+  Annual,
+  Lifetime,
+  Temporary
+}
+
 public class MembershipManager
 {
     Member m;
-    if(type == 'Annual')
-    {
-       m = new AnnualMember();
-    }
+    MemberType memberType = MemberType.Annual;
+    m = MemberFactory.CreateMember(memberType);
     
-    if(type == 'Lifetime')
-    {
-        m = new LifetimeMember();
-    }
-    
-    else
-    {
-        m = new LifetimeMember();
-    }
+    m.Register();
+    m.Notify();
 }
 
+public class MemberFactory
+{
+    public static Member CreateMember(MemberType type)
+    {
+        if(type == 'Annual')
+        {
+           m = new AnnualMember();
+        }
+    
+        if(type == 'Lifetime')
+        {
+            m = new LifetimeMember();
+        }
 
+        else
+        {
+            m = new LifetimeMember();
+        }
+        
+        return m;
+    }
+}
 
 public class Client
 {
