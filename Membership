@@ -1,77 +1,104 @@
-public class Member
-{
-  public void Register()
-  {
+// Online C# Editor for free
+// Write, Edit and Run your C# code using C# Online Compiler
     
-  }
-  
-  public void Notify()
-  {
-    
-  }
-}
+using System;
 
-public class AnnualMember : Member
+namespace HelloWorld
 {
-  
-}
-
-public class LifetimeMember : Member
-{
-  
-}
-
-public class TemporaryMember : Member
-{
-  
-}
-
-Enum MemberType
-{
-  Annual,
-  Lifetime,
-  Temporary
-}
-
-public class MembershipManager
-{
-    Member m;
-    MemberType memberType = MemberType.Annual;
-    m = MemberFactory.CreateMember(memberType);
-    
-    m.Register();
-    m.Notify();
-}
-
-public class MemberFactory
-{
-    public static Member CreateMember(MemberType type)
+    public class Client
     {
-        if(type == 'Annual')
+        public static void Main(string[] args)
         {
-           m = new AnnualMember();
+            //Console.WriteLine ("Hello Mono World\n");
+            /*Member member = new Member();
+            member.Register();
+            member.Notify();*/
+            
+            Member annualMember;
+            MembershipManager m1 = new MembershipManager();
+            annualMember = m1.CreateMembership(MemberType.Annual);
+            
+            MembershipManager m2 = new MembershipManager();
+            annualMember = m2.CreateMembership(MemberType.Lifetime);
+            
         }
-    
-        if(type == 'Lifetime')
-        {
-            m = new LifetimeMember();
-        }
-
-        else
-        {
-            m = new LifetimeMember();
-        }
-        
-        return m;
     }
-}
 
-public class Client
-{
-    public void ProcessMember
+    public class Member
     {
-        MemberType type;
-        MembershipManager m1 = new MembershipManager();
-        m1.
+        public void Register()
+        {
+            Console.WriteLine("Member Register");
+        }
+    
+        public void Notify()
+        {
+            Console.WriteLine("Member Notify");
+        }
+    }
+
+    public class AnnualMember : Member
+    {
+        public AnnualMember()
+        {
+            Console.WriteLine ("Annual Member");
+        }
+    }
+
+    public class LifetimeMember : Member
+    {
+        public LifetimeMember()
+        {
+            Console.WriteLine ("Lifetime Member");
+        }
+    }
+
+    public class TemporaryMember : Member
+    {
+        public TemporaryMember()
+        {
+            Console.WriteLine ("Temp Member");
+        }
+    }
+    
+    public enum MemberType
+    {
+        Annual,
+        Lifetime,
+        Temporary
+    }
+
+    public class MembershipManager
+    {
+      Member m;
+
+      public Member CreateMembership(MemberType type)
+      {
+          MemberFactory factory = new MemberFactory();
+          m = factory.CreateMember(type);
+          return m;
+      }
+    }
+    
+    public class MemberFactory
+    {
+      Member m;
+      public Member CreateMember(MemberType type)
+      {
+          if(type == MemberType.Annual)
+          {
+              m = new AnnualMember();
+          }
+          if(type == MemberType.Lifetime)
+          {
+              m = new LifetimeMember();
+          }
+          if(type == MemberType.Temporary)
+          {
+              m = new TemporaryMember();
+          }
+
+          return m;
+      }
     }
 }
