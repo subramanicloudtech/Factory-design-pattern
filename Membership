@@ -1,0 +1,46 @@
+public class Member
+{
+  public void Register()
+  {
+    
+  }
+  
+  public void Notify()
+  {
+    
+  }
+}
+
+public class AnnualMember : Member
+{
+  
+}
+
+public class LifetimeMember : Member
+{
+  
+}
+
+public class TemporaryMember : Member
+{
+  
+}
+
+public class MembershipManager
+{
+    Member m;
+    if(type == 'Annual')
+    {
+       m = new AnnualMember();
+    }
+    
+    if(type == 'Lifetime')
+    {
+        m = new LifetimeMember();
+    }
+    
+    else
+    {
+        m = new LifetimeMember();
+    }
+}
