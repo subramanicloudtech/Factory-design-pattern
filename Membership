@@ -44,3 +44,15 @@ public class MembershipManager
         m = new LifetimeMember();
     }
 }
+
+
+
+public class Client
+{
+    public void ProcessMember
+    {
+        MemberType type;
+        MembershipManager m1 = new MembershipManager();
+        m1.
+    }
+}
